@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="greeting">
+    <div class="container">
+        <h1>Choose your knife with <span>ursus</span></h1>
+        <h2>The best choice for a gentleman</h2>
+    </div>
+</section>
+<section class="cards">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-12">
+                <div class="card">
+                    <img class="card-img-top" src="{{ url_for('static', filename='img/knive_2.jpeg') }}"
+                         alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">Best quality</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <div class="card">
+                    <img class="card-img-top" src="{{ url_for('static', filename='img/knive_2.jpeg') }}"
+                         alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">Elegance</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <div class="card">
+                    <img class="card-img-top" src="{{ url_for('static', filename='img/knive_2.jpeg') }}"
+                         alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">Sharpness</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="about" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h3>About me</h3>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <img class='avatar' src="{{ url_for('static', filename='img/knive_2.jpeg') }}" alt="avatar"
+                     class="about">
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing, elit. Vel cupiditate tenetur illum, velit ex ab
+                    laboriosam totam, delectus enim doloremque!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, magni.</p>
+                <p>Gregor</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="faq" id="faq">
+    <div class="container">
+        <div class="col-12">
+            <h3>How to order</h3>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <b>1 </b>
+            <p>Lorem, ipsum dolor sit amet consectetur, adipisicing elit. Perferendis, dolorem.</p>
+            <b>2 </b>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, magni.</p>
+            <b>3 </b>
+            <p>Lorem, ipsum dolor sit amet consectetur, adipisicing elit. Perferendis, dolorem.</p>
+            <b>4 </b>
+            <p>Lorem, ipsum dolor sit amet consectetur, adipisicing elit. Perferendis, dolorem.</p>
+            <b>5 </b>
+            <p>Lorem, ipsum dolor sit amet consectetur, adipisicing elit. Perferendis, dolorem.</p>
+        </div>
+    </div>
+</section>
+{% endblock content %}

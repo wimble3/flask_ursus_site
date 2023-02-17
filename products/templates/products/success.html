@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="success">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>Thank you for the order!</h1>
+                <p>For all questions, you can contact by mail ursus@internet.ru</p>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 40px;">
+            <div class="col-12">
+                <h2>Your data:</h2>
+                {% for elem in form_data %}
+                <p>{{ elem }}: {{ form_data[elem] }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

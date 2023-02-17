@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="greeting">
+    <div class="container">
+        <h1>Products</h1>
+        <h2>Select a product from the list or make <a href="/custom">custom</a></h2>
+    </div>
+</section>
+<section class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                {% for knife in knifes %}
+                <div class="card">
+                    <img class="card-img-top" src="{{ url_for('static', filename='img/1068-300.png') }}"
+                         alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ knife.name }}</h4>
+                        <p class="card-text">
+                            <p><i>{{ knife.description }}</i></p>
+                            <p>Blade material: {{ knife.blade_material }}</p>
+                            <p>Blade length: {{ knife.blade_material }}</p>
+                        </p>
+                        <a href="{{ url_for('products.show_product', path=knife.slug) }}" class="btn btn-primary">See more</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
