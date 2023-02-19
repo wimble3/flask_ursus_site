@@ -10,12 +10,7 @@ products = Blueprint('products', __name__, template_folder='templates')
 def index():
     knifes = get_knifes()
 
-    return render_template(
-        'products/index.html',
-        title='Ursus | Products',
-        menu=g.menu,
-        knifes=knifes
-    )
+    return render_template('products/index.html', title='Ursus | Products', menu=g.menu, knifes=knifes)
 
 
 @products.route('/order/<path>', methods=['POST', 'GET'])
@@ -24,7 +19,7 @@ def order(path):
     form = Order()
 
     if form.validate_on_submit():
-        form_data = {
+        order_data = {
             'name': form.name.data,
             'email': form.email.data,
             'address': form.address.data,
@@ -33,30 +28,16 @@ def order(path):
 
         # Insert заявки в БД
 
-        return render_template(
-            'products/success.html',
-            title=titles['order_success'],
-            menu=g.menu,
-            knife=knife,
-            form_data=form_data
-        )
+        return render_template('products/success.html', title=titles['order_success'], menu=g.menu,
+                               knife=knife,
+                               form_data=order_data)
 
-    return render_template(
-        'products/order.html',
-        title=titles['order'],
-        menu=g.menu,
-        knife=knife,
-        form=form
-    )
+    return render_template('products/order.html', title=titles['order'], menu=g.menu, knife=knife, form=form)
 
 
 @products.route('/<path>')
 def show_product(path):
     knife = get_knife_by_path(path)
 
-    return render_template(
-        'products/detail.html',
-        title=f"{titles['show_product']} {knife.name}",
-        menu=g.menu,
-        knife=knife
-    )
+    return render_template('products/detail.html', title=f"{titles['show_product']} {knife.name}", menu=g.menu,
+                           knife=knife)

@@ -24,7 +24,7 @@ section {
 }
 
 .card {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 h3 {
@@ -113,18 +113,6 @@ select {
     margin-right: 5px;
 }
 
-.order input {
-    border-radius: 5px;
-    border: 1px solid black;
-    padding: 10px;
-}
-
-.order input:focus {
-    outline: 0;
-    outline-offset: 0;
-    background-color: rgba(1, 1, 1, .05);
-}
-
 .form-error {
     background-color: rgba(100, 0, 0, .5);
     border-radius: 5px;
@@ -134,4 +122,61 @@ select {
 .knife-prop{
     margin-top: -8px;
     margin-bottom: 15px;
+}
+
+.custom form {
+    margin-top: 80px;
+}
+
+.custom select, input {
+    display: block;
+    color: #444;
+    line-height: 1.3;
+    padding: .6em 1.4em .5em .8em; width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    box-shadow: 0 1px 0 1px rgba(0, 0, 0, .035);
+    border-radius: .5em;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.base-info {
+    margin-top: 100px;
+}
+
+.elem {
+    margin-bottom: 25px;
+}
+
+input:focus {
+    outline: 0;
+    outline-offset: 0;
+    background-color: rgba(1, 1, 1, .05);
+}
+
+.response {
+    background-color: rgba(1, 1, 1, .05);
+    padding: 20px;
+    padding-top: 25px;
+    border-radius: 8px;
+    margin-top: 60px;
+}
+
+.flash {
+    margin-bottom: 60px;
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+}
+
+.flash.error {
+    background-color: #a51b0b;
+}
+
+.flash.success {
+    background-color: #2faa20;
 }

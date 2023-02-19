@@ -11,28 +11,16 @@ def before_request():
 
 @app.route('/')
 def index():
-    return render_template(
-        'index.html',
-        title=titles['index'],
-        menu=g.menu
-    )
+    return render_template('index.html', title=titles['index'], menu=g.menu)
 
 
 @app.route('/requisites')
 def requisites():
-    return render_template(
-        'requisites.html',
-        title=titles['requisites'],
-        menu=g.menu
-    )
+    return render_template('requisites.html', title=titles['requisites'], menu=g.menu)
 
 
 @app.errorhandler(500)
 @app.errorhandler(404)
+@app.errorhandler(405)
 def error(e):
-    return render_template(
-        'error.html',
-        title=titles['error'],
-        menu=g.menu,
-        error=e
-    )
+    return render_template('error.html', title=titles['error'], menu=g.menu, error=e)

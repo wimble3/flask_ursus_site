@@ -12,13 +12,13 @@
                 <p class="form-error">{{ error }}</p>
                 {% endfor %}
                 {% endif %}
-                <form method="POST" id="#order-form" action="{{ url_for('products.order', path=knife.slug) }}">
+                <form method="POST" action="{{ url_for('products.order', path=knife.slug) }}" id="#form">
                     {{ form.csrf_token }}
                     <p>{{ form.name.label }}: {{ form.name(size=20) }}</p>
                     <p>{{ form.email.label }}: {{ form.email(size=20) }}</p>
                     <p>{{ form.address.label }}: {{ form.address(size=20) }}</p>
                     <p>{{ form.payment_number.label }}: {{ form.payment_number(size=20) }}</p>
-                    <a href="/requisites">Requisites</a>
+                    <a href="#form" id="requisites">Requisites</a>
                     <p>Knife: {{ knife.name }}</p>
                     <input class="btn btn-primary" type="submit" value="Create request">
                 </form>
@@ -27,3 +27,7 @@
     </div>
 </section>
 {% endblock content %}
+{% block scripts %}
+{{ super() }}
+<script src="{{ url_for('static', filename='js/requisites.js') }}"></script>
+{% endblock scripts %}
