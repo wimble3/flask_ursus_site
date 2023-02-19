@@ -15,5 +15,5 @@ class MenuItem(db.Model):
 def get_menu_items():
     try:
         return MenuItem.query.all()
-    except sqlite3.DatabaseError:
+    except sqlite3.OperationalError:
         abort(500)

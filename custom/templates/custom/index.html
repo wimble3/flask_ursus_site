@@ -4,10 +4,65 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h3>Sorry, but this page in dev</h3>
-                <p>Configurator will be soon!</p>
+                <h1>Configurator</h1>
+                <h2>Assemble your dream knife yourself</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <form method="POST" action="{{ url_for('custom.index') }}" id="form">
+                    {% for category, msg in get_flashed_messages(True) %}
+                    <div class="flash {{ category }}">
+                        {{ msg }}
+                    </div>
+                    {% endfor %}
+                    {{ form.csrf_token }}
+                    <div class="knife-info">
+                        {% for elem in configurator_data.items() %}
+                        <div class="elem">
+                            <label for="{{ elem[0] }}">{{ elem[0]|replace('_', ' ')|title }}</label>
+                            <select name="{{ elem[0] }}" id="{{ elem[0] }}">
+                                {% for item in elem[1] %}
+                                <option value="{{ item }}">{{ item }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="response">
+                        <h2>Total price: 1174$</h2>
+                        <input name="total_price" id="total_price" type="text" value="1174" hidden>
+                    </div>
+
+                    <div class="base-info" id="base-info">
+                        <p>
+                            <label for="name">Name</label>
+                            <input type="text" name="name" required>
+                        </p>
+                        <p>
+                            <label for="email">E-mail</label>
+                            <input type="email" name="email" required>
+                        </p>
+                        <p>
+                            <label for="address">Address</label>
+                            <input type="text" name="address" required>
+                        </p>
+                        <p>
+                            <label for="payment_number">Payment number</label>
+                            <input type="text" name="payment_number" required>
+                        </p>
+                        <a href="#base-info" id="requisites">Requisites</a>
+                    </div>
+                    <input type="submit" class="btn btn-primary" id="btn" value="Create request">
+                </form>
             </div>
         </div>
     </div>
 </section>
 {% endblock content %}
+{% block scripts %}
+{{ super() }}
+<script src="{{ url_for('custom.static', filename='custom/js/price_ajax.js') }}"></script>
+<script src="{{ url_for('static', filename='js/requisites.js') }}"></script>
+{% endblock scripts %}

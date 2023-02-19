@@ -13,8 +13,8 @@ class Knife(db.Model):
     blade_length = db.Column(db.Integer, nullable=False)
     blade_thickness = db.Column(db.Integer, nullable=False)
     handle_material = db.Column(db.Integer, nullable=False)
-    coating = db.Column(db.String(50), unique=True, nullable=False)
-    description = db.Column(db.String(250), unique=True, nullable=False)
+    coating = db.Column(db.String(50), nullable=False)
+    description = db.Column(db.String(250), nullable=False)
 
     def __repr__(self):
         return f'Knife {self.name}'
@@ -23,7 +23,7 @@ class Knife(db.Model):
 def get_knifes():
     try:
         return Knife.query.all()
-    except sqlite3.DatabaseError:
+    except sqlite3.OperationalError:
         abort(500)
 
 
@@ -31,7 +31,7 @@ def get_knife_by_path(path):
     knife = None
     try:
         return Knife.query.filter(Knife.slug.like(f'{path}')).first()
-    except sqlite3.DatabaseError:
+    except sqlite3.OperationalError:
         abort(500)
 
     if not knife:
